@@ -6,7 +6,7 @@
 
 ## 2. Git과 GitHub의 개념
 ### 2.1 Git의 개념
-<p align="center"><img src="images/octocat.svg" width="240" /></p>
+<p align="center"><img src="images/git.png" width="300" /></p>
 
 - Git은 파일의 변경 이력을 관리하는 분산 버전 관리 시스템(DVCS)으로, 개발자는 Git을 통해 파일의 수정 사항을 기록하고, 이전 상태로 되돌리거나 변경 내역을 비교할 수 있다. 
 - Git은 크게 로컬 저장소(내 컴퓨터)와 원격 저장소로 나뉠수 있는데, 만약 코드가 손상되거나 다른 컴퓨터에서 코드를 가져오고 싶을때는 원격저장소를 통해서 가져올수 있다.
@@ -15,8 +15,90 @@
 ### 2.2 GitHub의 개념
 GitHub는 Git을 기반으로 한 원격 저장소 서비스로, 프로젝트를 온라인에 저장하고 여러 사용자와 협업할 수 있도록 지원한다.
 
-## 3. Git 기본 사용 흐름
-작업 디렉토리 → 스테이징 영역 → 로컬 저장소 → 원격 저장소(GitHub)
+## 3. Git/GitHub의 사용법
+### 3.1 Git/GitHub의 핵심 키워드
+<p align="left">
+  <img src="images/pull.png" width="180" />
+  <img src="images/add.png" width="180" />
+  <img src="images/commit.png" width="180" />
+  <img src="images/push.png" width="180" />
+</p>
+pull / add / commit / push 
+
+### 3.2 Git 사용방법
+- http://git-scm.com 에서 설치 및 실행
+- 버전 확인 및 초기 설정
+  ```bash
+  $ git --version
+  $ git config --global user.name "hongildong"
+  $ git config --global user.email email@example.com
+  ```
+- 작업할 디렉토리(저장소)를 만들고(mkdir) 생성한 디렉토리로 이동하기(cd)
+  ```bash
+  $ mkdir git-test
+  $ cd git-test
+  ```
+- 해당 디렉토리를 Git저장소로 만들기. git init를 입력하면 해당 폴더 기준으로 .git(로컬 저장소)가 생성됨(한 폴더당 하나의 .git을 가져야함. 아니면 충돌이 발생)
+  ```bash
+  $ git init
+  ```
+- 파일을 생성하고, 추가하고 커밋하기
+  ```bash
+  $ touch README.md // 파일 생성 (파일 상태 = Untracked)
+  $ git add README.md // 파일 추가 (파일 상태 = Staged(커밋 후보 선정))
+  $ git commit -m // 파일 커밋 (파일 상태 = Commited(Staged된 파일들을 하나의 버전으로 저장. 일종의 체크 포인트))
+  ```
+- 이때 commited된 코드는 로컬상의 .git 폴더에 저장됨
+- 만약 변경사항을 전부 커밋 후보로 올리고 싶다면 add . 사용
+  ```bash
+  $ git add . // 변경사항 전부 Staged
+  ```
+-  파일 상태(status)를 확인
+  ```bash
+  $ git status 
+  ```
+  <p align="left">
+  <img src="images/status.png" width="500" />
+  </p>
+  
+- 변경 사항(diff) 및 커밋 히스토리(log) 확인
+  ```bash
+  $ git diff
+  $ git log 
+  ```
+- GitHub에 반영(push)되지 않을 파일 지정(.gitignore)
+  <p align="left">
+  <img src="images/ignore.png" width="500" />
+  </p>
+
+
+### 3.3 GitHub 사용방법
+- GitHub 가입후, Repository 생성(편의를 위해 README file 생성 추천)
+  <p align="left">
+  <img src="images/repository.png" width="500" />
+  </p>
+
+- Repository 내부 하위 폴더 생성하기
+  <p align="left">
+  <img src="images/file1.png" width="500" />
+  </p>
+  <p align="left">
+  <img src="images/file2.png" width="500" />
+  </p>
+
+- GitHub(원격 저장소)상의 코드를 로컬(컴퓨터)에 연결
+  ```bash
+  $ mkdir filename // 로컬 상에 디렉토리 생성
+  $ cd filename // 해당 디렉토리로 이동
+  $ git http://github.com/id/clone-filename.git . // 해당 디렉토리에 받고 싶은 코드 주소 설정([.]: 현 폴더에 배려받기)
+  ```
+  
+- 1) pull: GitHub상에 연결된 Repository에서 업데이트된 데이터 가져오기
+  ```bash
+  $ git pull origin main
+  ```
+- 2)
+  
 
 ## 4. Git 기본 명령어
 ```bash
