@@ -97,7 +97,19 @@ pull / add / commit / push
   ```bash
   git pull origin main
   ```
-- 2)
+- 2) add: 로컬(내 컴퓨터)에서 수정·추가된 파일을 커밋 대상으로 선택하여 스테이징 영역(Staging Area)에 올리기
+  ```bash
+  git add .
+  ```
+- 3) commit: 스테이징된 변경사항을 하나의 버전(이력)으로 로컬 저장소에 기록하기
+  ```bash
+  git commit -m "Update study contents"
+  ```
+- 4) push: 로컬 저장소에 기록된 커밋을 GitHub(원격 저장소)로 업로드하여 팀원과 공유하기
+  ```bash
+  git push origin main
+  ```
+  -> 하지만, push시 아래와 같은 오류가 생길수 있다.
   
 
 ## 4. Git 기본 명령어
