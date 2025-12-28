@@ -29,33 +29,33 @@ pull / add / commit / push
 - http://git-scm.com 에서 설치 및 실행
 - 버전 확인 및 초기 설정
   ```bash
-  $ git --version
-  $ git config --global user.name "hongildong"
-  $ git config --global user.email email@example.com
+  git --version
+  git config --global user.name "hongildong"
+  git config --global user.email email@example.com
   ```
 - 작업할 디렉토리(저장소)를 만들고(mkdir) 생성한 디렉토리로 이동하기(cd)
   ```bash
-  $ mkdir git-test
-  $ cd git-test
+  mkdir git-test
+  cd git-test
   ```
 - 해당 디렉토리를 Git저장소로 만들기. git init를 입력하면 해당 폴더 기준으로 .git(로컬 저장소)가 생성됨(한 폴더당 하나의 .git을 가져야함. 아니면 충돌이 발생)
   ```bash
-  $ git init
+  git init
   ```
 - 파일을 생성하고, 추가하고 커밋하기
   ```bash
-  $ touch README.md // 파일 생성 (파일 상태 = Untracked)
-  $ git add README.md // 파일 추가 (파일 상태 = Staged(커밋 후보 선정))
-  $ git commit -m // 파일 커밋 (파일 상태 = Commited(Staged된 파일들을 하나의 버전으로 저장. 일종의 체크 포인트))
+  touch README.md // 파일 생성 (파일 상태 = Untracked)
+  git add README.md // 파일 추가 (파일 상태 = Staged(커밋 후보 선정))
+  git commit -m // 파일 커밋 (파일 상태 = Commited(Staged된 파일들을 하나의 버전으로 저장. 일종의 체크 포인트))
   ```
 - 이때 commited된 코드는 로컬상의 .git 폴더에 저장됨
 - 만약 변경사항을 전부 커밋 후보로 올리고 싶다면 add . 사용
   ```bash
-  $ git add . // 변경사항 전부 Staged
+  git add . // 변경사항 전부 Staged
   ```
 -  파일 상태(status)를 확인
   ```bash
-  $ git status 
+  git status 
   ```
   <p align="left">
   <img src="images/status.png" width="500" />
@@ -63,8 +63,8 @@ pull / add / commit / push
   
 - 변경 사항(diff) 및 커밋 히스토리(log) 확인
   ```bash
-  $ git diff
-  $ git log 
+  git diff
+  git log 
   ```
 - GitHub에 반영(push)되지 않을 파일 지정(.gitignore)
   <p align="left">
@@ -88,14 +88,14 @@ pull / add / commit / push
 
 - GitHub(원격 저장소)상의 코드를 로컬(컴퓨터)에 연결
   ```bash
-  $ mkdir filename // 로컬 상에 디렉토리 생성
-  $ cd filename // 해당 디렉토리로 이동
-  $ git http://github.com/id/clone-filename.git . // 해당 디렉토리에 받고 싶은 코드 주소 설정([.]: 현 폴더에 배려받기)
+  mkdir filename // 로컬 상에 디렉토리 생성
+  cd filename // 해당 디렉토리로 이동
+  git http://github.com/id/clone-filename.git . // 해당 디렉토리에 받고 싶은 코드 주소 설정([.]: 현 폴더에 배려받기)
   ```
   
 - 1) pull: GitHub상에 연결된 Repository에서 업데이트된 데이터 가져오기
   ```bash
-  $ git pull origin main
+  git pull origin main
   ```
 - 2)
   
